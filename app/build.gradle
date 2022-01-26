@@ -10,7 +10,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.codinginflow.mvvmnewsapp"
+        applicationId "com.uszkaisandor.mealdeas"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
