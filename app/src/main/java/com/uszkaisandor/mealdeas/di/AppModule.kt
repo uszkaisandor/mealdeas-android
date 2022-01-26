@@ -2,13 +2,11 @@ package com.uszkaisandor.mealdeas.di
 
 import android.app.Application
 import androidx.room.Room
-import com.uszkaisandor.mealdeas.api.AuthInterceptor
-import com.uszkaisandor.mealdeas.api.ClientPropertiesInterceptor
-import com.uszkaisandor.mealdeas.api.NewsApi
-import com.uszkaisandor.mealdeas.data.NewsArticleDatabase
-import com.uszkaisandor.mealdeas.shared.SessionManager
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.uszkaisandor.mealdeas.api.AuthInterceptor
+import com.uszkaisandor.mealdeas.api.ClientPropertiesInterceptor
+import com.uszkaisandor.mealdeas.data.MealDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -68,26 +66,18 @@ object AppModule {
         okHttpClient.addInterceptor(loggingInterceptor)
 
         return Retrofit.Builder()
-            .baseUrl(NewsApi.BASE_URL)
+            .baseUrl("") // todo later
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient.build())
             .build()
     }
 
-    @Provides
-    @Singleton
-    fun provideNewsApi(retrofit: Retrofit): NewsApi =
-        retrofit.create(NewsApi::class.java)
 
     @Provides
     @Singleton
-    fun provideDatabase(app: Application): NewsArticleDatabase =
-        Room.databaseBuilder(app, NewsArticleDatabase::class.java, "news_article_database")
+    fun provideDatabase(app: Application): MealDatabase =
+        Room.databaseBuilder(app, MealDatabase::class.java, "meal_database")
             .fallbackToDestructiveMigration()
             .build()
 
-    @Singleton
-    @Provides
-    fun provideSessionManager(authInterceptor: AuthInterceptor) =
-        SessionManager(authInterceptor)
 }
