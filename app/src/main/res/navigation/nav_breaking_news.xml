@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/breakingNewsFragment"
-        android:name="com.uszkaisandor.mvvmnewsapp.features.breakingnews.BreakingNewsFragment"
+        android:name="com.uszkaisandor.mealdeas.features.breakingnews.BreakingNewsFragment"
         android:label="BreakingNewsFragment" >
         <action
             android:id="@+id/action_breakingNewsFragment_to_sampleFragment2"
@@ -14,6 +14,6 @@
     </fragment>
     <fragment
         android:id="@+id/sampleFragment2"
-        android:name="com.uszkaisandor.mvvmnewsapp.features.SampleFragment"
+        android:name="com.uszkaisandor.mealdeas.features.SampleFragment"
         android:label="SampleFragment" />
 </navigation>

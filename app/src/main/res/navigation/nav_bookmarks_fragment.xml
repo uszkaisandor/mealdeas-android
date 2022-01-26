@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/bookmarksFragment"
-        android:name="com.uszkaisandor.mvvmnewsapp.features.bookmarks.BookmarksFragment"
+        android:name="com.uszkaisandor.mealdeas.features.bookmarks.BookmarksFragment"
         android:label="BookmarksFragment" />
 </navigation>
