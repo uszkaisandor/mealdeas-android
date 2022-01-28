@@ -32,7 +32,7 @@
             android:paddingEnd="12dp"
             android:paddingBottom="12dp"
             android:textAppearance="@style/RobotoBold20Secondary"
-            android:textColor="@color/secondary_text"
+            android:textColor="@color/primary_text"
             app:layout_constraintBottom_toBottomOf="@id/recipe_photo"
             tools:text="@string/app_name" />
 
@@ -45,10 +45,10 @@
             android:paddingTop="4dp"
             android:paddingEnd="12dp"
             android:paddingBottom="4dp"
+            android:text="@string/ingredients"
             android:textColor="@color/primary_text"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/recipe_name"
-            tools:text="@string/ingredients" />
+            app:layout_constraintTop_toBottomOf="@id/recipe_name" />
 
         <LinearLayout
             android:id="@+id/ingredient_container"
