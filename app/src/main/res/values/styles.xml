@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="RobotoBold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="RobotoMedium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+
+    <style name="RobotoBold20" parent="RobotoBold">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="RobotoBold20Secondary" parent="RobotoBold20">
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+
+    <style name="RobotoMedium12" parent="RobotoMedium">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+    <style name="RobotoMedium12Primary" parent="RobotoMedium12">
+        <item name="android:textColor">@color/primary_text</item>
+    </style>
+
+
+</resources>
