@@ -6,7 +6,8 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.uszkaisandor.mealdeas.api.AuthInterceptor
 import com.uszkaisandor.mealdeas.api.ClientPropertiesInterceptor
-import com.uszkaisandor.mealdeas.data.MealDatabase
+import com.uszkaisandor.mealdeas.api.MealdeasApi
+import com.uszkaisandor.mealdeas.data.MealdeasDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -66,7 +67,7 @@ object AppModule {
         okHttpClient.addInterceptor(loggingInterceptor)
 
         return Retrofit.Builder()
-            .baseUrl("") // todo later
+            .baseUrl(MealdeasApi.BASE_URL) // todo later
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient.build())
             .build()
@@ -75,9 +76,13 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideDatabase(app: Application): MealDatabase =
-        Room.databaseBuilder(app, MealDatabase::class.java, "meal_database")
+    fun provideDatabase(app: Application): MealdeasDatabase =
+        Room.databaseBuilder(app, MealdeasDatabase::class.java, "mealdeas_database")
             .fallbackToDestructiveMigration()
             .build()
 
+    @Provides
+    @Singleton
+    fun provideMealdeasApi(retrofit: Retrofit): MealdeasApi =
+        retrofit.create(MealdeasApi::class.java)
 }
